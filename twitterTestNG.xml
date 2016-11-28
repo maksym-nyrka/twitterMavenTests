@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TwitterTests" thread-count="3" parallel="tests">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+        <listener class-name="utility.ScreenshotUtility"/>
+    </listeners>
+
+    <!--<test name="LoginTest">
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="SendingATweetTest">
+        <classes>
+            <class name="tests.SendTweetTest"/>
+        </classes>
+    </test>
+    <test name="FailLoginTest">
+        <classes>
+            <class name="tests.FailLoginTest"/>
+        </classes>
+    </test>
+    <test name="RetweetTest">
+        <classes>
+            <class name="tests.RetweetTest"/>
+        </classes>
+    </test>
+    <test name="TwoTestsTestChrome">
+        <parameter name="browser" value="Chrome" />
+        <classes>
+            <class name="tests.TwoTests"/>
+        </classes>
+    </test>
+    <test name="TwoTestsTestFirefox">
+        <parameter name="browser" value="Firefox" />
+        <classes>
+            <class name="tests.TwoTests"/>
+        </classes>
+    </test>-->
+    <test name="UnretweetTest">
+        <classes>
+            <class name="tests.UndoRetweetTest"/>
+        </classes>
+    </test>
+</suite>
+
+
