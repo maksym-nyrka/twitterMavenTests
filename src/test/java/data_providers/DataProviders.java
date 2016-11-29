@@ -23,5 +23,12 @@ public class DataProviders {
                         {1}
                 };
     }
-
+    @DataProvider(name = "tweet-message-with-picture")
+    public static Object[][] createData3()
+    {
+        return new Object[][]
+                {
+                        {"Such amazing solution!","stackoverflownotfirstanswer.png"}
+                };
+    }
 }

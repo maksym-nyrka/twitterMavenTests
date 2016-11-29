@@ -54,10 +54,10 @@ public class UndoRetweetTest extends BaseTest {
         Logger.log("Find post #TWEET_NUMBER and click unretweet");
         WebElement unretweetedTweet = TwitterActions.unretweet(TWEET_NUMBER,objProfilePage);
 
+        String unretweetedTweetUserLink = objProfilePage.getRetweetedTweetUserLink(unretweetedTweet);
         String unretweetedTweetId = objProfilePage.getTweetId(unretweetedTweet);
         int unretweetedTweetCounter = Integer.parseInt(objProfilePage.getRetweetsNumberButton(unretweetedTweet).getText());
         Timestamp unretweetedTweetTimestamp = objProfilePage.getTweetTimestamp(unretweetedTweet);
-        String unretweetedTweetUserLink = objProfilePage.getRetweetedTweetUserLink(unretweetedTweet);
         System.out.println(unretweetedTweetId);
         System.out.println(unretweetedTweetCounter);
         System.out.println(unretweetedTweetTimestamp);

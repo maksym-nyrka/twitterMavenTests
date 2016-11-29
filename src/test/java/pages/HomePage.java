@@ -53,6 +53,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[3]/ul/li[2]/a/span[2]")
     WebElement followingCounterButton;
 
+    @FindBy(xpath = "//div[@class='modal-tweet-form-container']//input[@name='media_empty']")
+    WebElement addPhotoButton;
+
 
     public HomePage(WebDriver driver)
     {
@@ -128,5 +131,8 @@ public class HomePage extends BasePage{
         return followingCounterButton;
     }
 
+    public WebElement getAddPhotoButton() {
+        return addPhotoButton;
+    }
 }
 
