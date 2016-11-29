@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="34.410">
+           time="51.630">
   <properties />
   
   
-            <testcase name="testRetweet" time="34.410" classname="tests.RetweetTest" />
+            <testcase name="testRetweet" time="51.630" classname="tests.RetweetTest" />
       
 </testsuite>

@@ -10,6 +10,11 @@ import pages.ProfilePage;
 import pages.UserPage;
 import utility.Logger;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -293,4 +298,16 @@ public class TwitterActions {
         return tweet;
     }
 
+    public static int  linkResponseCode(String URLName){
+        try {
+            HttpURLConnection con = (HttpURLConnection)(new URL( URLName ).openConnection());
+            con.setInstanceFollowRedirects( false );
+            con.connect();
+            return con.getResponseCode();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }

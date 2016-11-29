@@ -3,16 +3,16 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
 <head>
-  <title>Test Results Report - UnretweetTest</title>
+  <title>Test Results Report - SendingATweetWithPictureTest</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="description" content="TestNG unit test results." />
   <link href="reportng.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="reportng.js"></script>
 </head>
 <body>
-<h1>UnretweetTest</h1>
+<h1>SendingATweetWithPictureTest</h1>
 <p>
-  Test duration: 23.892s
+  Test duration: 37.367s
 </p>
 
 
@@ -22,7 +22,7 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">tests.UndoRetweetTest</td>
+        <td colspan="3" class="group">tests.SendTweetWithPhotoTest</td>
       </tr>
             
 <tr>
@@ -30,20 +30,20 @@
                   testLogin
       </td>
   <td class="duration">
-    7.599s
+    10.332s
   </td>
   <td class="result">
         
           <i>Method arguments: </i><span class="arguments">"automation2005", "qatestlab2005"</span><br />
     
             <div class="testOutput">
-                        28.11.2016 12:31:29 Login to twitter account<br/>
-                                28.11.2016 12:31:29 Enter twitter username<br/>
-                                28.11.2016 12:31:29 Enter twitter password<br/>
-                                28.11.2016 12:31:30 Click login button<br/>
-                                28.11.2016 12:31:34 Home page is opened<br/>
-                                28.11.2016 12:31:34 Compare actual username with expected<br/>
-                                28.11.2016 12:31:35 Check the presence of news feed<br/>
+                        29.11.2016 12:12:11 Login to twitter account<br/>
+                                29.11.2016 12:12:11 Enter twitter username<br/>
+                                29.11.2016 12:12:12 Enter twitter password<br/>
+                                29.11.2016 12:12:13 Click login button<br/>
+                                29.11.2016 12:12:19 Home page is opened<br/>
+                                29.11.2016 12:12:19 Compare actual username with expected<br/>
+                                29.11.2016 12:12:19 Check the presence of news feed<br/>
                   </div>
     
 
@@ -54,15 +54,32 @@
                   testUndoRetweet
       </td>
   <td class="duration">
-    9.999s
+    16.948s
   </td>
   <td class="result">
         
-          <i>Method arguments: </i><span class="arguments">1</span><br />
+          <i>Method arguments: </i><span class="arguments">"Such amazing solution!", "stackoverflownotfirstanswer.png"</span><br />
     
             <div class="testOutput">
-                        28.11.2016 12:31:35 Go to Tweets Page<br/>
-                                28.11.2016 12:31:35 Unretweet retweeted post #NUMBER<br/>
+                        29.11.2016 12:12:19 Start writing new tweet<br/>
+                                29.11.2016 12:12:19 Check that Tweet form is opened<br/>
+                                29.11.2016 12:12:20 Compare actual twitter characters left with expected<br/>
+                                29.11.2016 12:12:20 Check that Tweet button is disabled<br/>
+                                29.11.2016 12:12:20 Check that Add Media button is present<br/>
+                                29.11.2016 12:12:20 Check that Add Poll button is present<br/>
+                                29.11.2016 12:12:20 Check that Add Location button is present<br/>
+                                29.11.2016 12:12:20 Add a MESSAGE to the tweet<br/>
+                                29.11.2016 12:12:20 Check that twitter characters left are reduced by lenght of the MESSAGE<br/>
+                                29.11.2016 12:12:20 Check that Tweet button is enabled<br/>
+                                29.11.2016 12:12:25 Send Tweet<br/>
+                                29.11.2016 12:12:25 Wait for New Tweet form is disappeared<br/>
+                                29.11.2016 12:12:28 Check that New Tweet from is not visible<br/>
+                                29.11.2016 12:12:28 Compare actual tweet message with expected<br/>
+                                29.11.2016 12:12:28 Reload page<br/>
+                                29.11.2016 12:12:34 Check that tweet counter is increased by 1<br/>
+                                29.11.2016 12:12:34 Go to Profile page<br/>
+                                29.11.2016 12:12:34 Get first tweet photo URL<br/>
+                                29.11.2016 12:12:34 Compare actual photo URL server response code with expected<br/>
                   </div>
     
 

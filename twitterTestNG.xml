@@ -5,7 +5,7 @@
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-        <listener class-name="utility.ScreenshotUtility"/>
+        <listener class-name="utility.UtilityListener"/>
     </listeners>
 
     <!--<test name="LoginTest">
@@ -39,10 +39,20 @@
         <classes>
             <class name="tests.TwoTests"/>
         </classes>
-    </test>-->
+    </test>
     <test name="UnretweetTest">
         <classes>
             <class name="tests.UndoRetweetTest"/>
+        </classes>
+    </test>
+    <test name="SendingATweetWithPictureTest">
+        <classes>
+            <class name="tests.SendTweetWithPhotoTest"/>
+        </classes>
+    </test>-->
+    <test name="SendingATweetWithPictureTest">
+        <classes>
+            <class name="tests.SendTweetWithPhotoTest"/>
         </classes>
     </test>
 </suite>

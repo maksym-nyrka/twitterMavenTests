@@ -30,11 +30,6 @@ public class UserPage extends BasePage {
         return driver.findElement(By.xpath("//li["+tweetNumber+"]//small/a/span"));
     }
 
-    public WebElement getTweetRetweetButton(int tweetNumber)
-    {
-        return driver.findElement(By.xpath("//li["+tweetNumber+"]/div/div[2]/div[3]/div[2]/div[2]/button[1]/div[2]/span/span"));
-    }
-
     public WebElement getDialogRetweetButton() {
         return dialogRetweetButton;
     }
