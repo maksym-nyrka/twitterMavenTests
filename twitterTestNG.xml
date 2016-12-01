@@ -3,9 +3,10 @@
 
 <suite name="TwitterTests" thread-count="3" parallel="tests">
     <listeners>
-        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <!--<listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-        <listener class-name="utility.UtilityListener"/>
+        <listener class-name="ru.yandex.qatools.allure.testng.AllureTestListener"/>
+        <listener class-name="utility.UtilityListener"/>-->
     </listeners>
 
     <!--<test name="LoginTest">
@@ -50,9 +51,14 @@
             <class name="tests.SendTweetWithPhotoTest"/>
         </classes>
     </test>-->
-    <test name="SendingATweetWithPictureTest">
+    <test name="LoginTest">
         <classes>
-            <class name="tests.SendTweetWithPhotoTest"/>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="FailLoginTest">
+        <classes>
+            <class name="tests.FailLoginTest"/>
         </classes>
     </test>
 </suite>

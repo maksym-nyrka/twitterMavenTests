@@ -19,7 +19,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public class SendEmail{
     public static void ComposeGmail(String fromMail,String tomail)

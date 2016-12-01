@@ -24,6 +24,8 @@ public class BaseTest {
     public void setup(@Optional("chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome"))
         {
+            File file = new File(".\\driver\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox"))
         {

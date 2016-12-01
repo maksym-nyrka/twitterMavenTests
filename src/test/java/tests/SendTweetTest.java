@@ -2,16 +2,11 @@ package tests;
 
 import actions.TwitterActions;
 import data_providers.DataProviders;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import utility.Logger;
-
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 
 
 /**

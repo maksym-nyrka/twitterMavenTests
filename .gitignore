@@ -1,5 +1,6 @@
 *.iml
-test-output/*
+test-output/
+target/
 .idea
 *.class
 

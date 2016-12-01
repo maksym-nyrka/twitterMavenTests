@@ -8,15 +8,16 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import ru.yandex.qatools.allure.annotations.Attachment;
 import tests.BaseTest;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -80,10 +81,17 @@ public class UtilityListener implements ITestListener{
 
         Logger.log("<br><a href=\"screenshots\\" + screenshotFileName
                 + "\"><img src=\"screenshots\\" + screenshotFileName + "\" alt=\"Screenshot\" height='200' width='350'/>");
+
+        byte[] bFile = new byte[(int) scrFile.length()];
+        try(FileInputStream fileInputStream = new FileInputStream(scrFile)) {
+            fileInputStream.read(bFile);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        saveScreenshot(bFile);
     }
     public void writeToFile(String s)
     {
-
         lines.add(s);
 
         Path file = Paths.get(fileName);
@@ -92,7 +100,9 @@ public class UtilityListener implements ITestListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+    }
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
     }
 }

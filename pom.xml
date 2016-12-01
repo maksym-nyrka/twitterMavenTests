@@ -11,6 +11,9 @@
     <properties>
         <chrome.driver>driver\chromedriver.exe</chrome.driver>
         <firefox.driver>driver\geckodriver.exe</firefox.driver>
+        <aspectj.filepath>driver\aspectjweaver-1.7.4.jar</aspectj.filepath>
+        <aspectj.version>1.7.4</aspectj.version>
+        <allure.version>1.4.24.RC2</allure.version>
     </properties>
 
 
@@ -20,7 +23,6 @@
             <artifactId>selenium-java</artifactId>
             <version>3.0.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -48,31 +50,38 @@
             <artifactId>mail</artifactId>
             <version>1.4.7</version>
         </dependency>
-
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-testng-adaptor</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
     </dependencies>
 
 
     <build>
-
         <plugins>
-
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.14.1</version>
                 <configuration>
-
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <argLine>
+                        -javaagent:${aspectj.filepath}
+                        <!---javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar -->
+                    </argLine>
                     <properties>
+                        <!--
                         <property>
                             <name>listener</name>
                             <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
                         </property>
+
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
                         </property>
-
+                        -->
                     </properties>
 
                     <systemPropertyVariables>
@@ -84,6 +93,13 @@
                         <suiteXmlFile>twitterTestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -96,6 +112,25 @@
         </plugins>
     </build>
 
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>ru.yandex.qatools.allure</groupId>
+                <artifactId>allure-maven-plugin</artifactId>
+                <version>2.2</version>
+                <!--
+                <configuration>
+                    <resultsDirectory>${project.build.directory}/converter-testing-results</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/converter-testing-report</reportDirectory>
+                    <properties>
+                        <allure.issues.tracker.pattern>https://issues.corp.twilio.com/browse/%s</allure.issues.tracker.pattern>
+                    </properties>
+                </configuration>
+                -->
+            </plugin>
+        </plugins>
+    </reporting>
 
 
 </project>

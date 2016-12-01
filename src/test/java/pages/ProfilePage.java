@@ -68,10 +68,10 @@ public class ProfilePage extends BasePage{
 
     public String getRetweetedTweetUserLink(WebElement tweet)
     {
-        return tweet.findElement(By.xpath("//a[contains(@class,'js-user-profile-link js-nav')]")).getAttribute("href");
+        return tweet.findElement(By.xpath(".//a[contains(@class,'js-user-profile-link js-nav')]")).getAttribute("href");
     }
     public String getTweetPhotoUrl(WebElement tweet)
     {
-        return tweet.findElement(By.xpath("//div[@class='AdaptiveMedia-singlePhoto']//img")).getAttribute("src");
+        return tweet.findElement(By.xpath(".//div[@class='AdaptiveMedia-singlePhoto']//img")).getAttribute("src");
     }
 }
