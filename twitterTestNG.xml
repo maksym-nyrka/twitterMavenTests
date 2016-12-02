@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="TwitterTests" thread-count="3" parallel="tests">
-    <listeners>
-        <!--<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+<suite name="TwitterTests">
+    <!--<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
         <listener class-name="ru.yandex.qatools.allure.testng.AllureTestListener"/>
-        <listener class-name="utility.UtilityListener"/>-->
-    </listeners>
+        <listener class-name="utility.UtilityListener"/>
+    </listeners>-->
 
     <!--<test name="LoginTest">
         <classes>

@@ -9,7 +9,9 @@
     <property name="build.compile" location="${build}/compile"/>
     <property name="build.test-compile" location="${build}/test-compile"/>
     <property name="build.report" location="${build}/report"/>
-    <property name="aspectj.version" value="1.7.4"/>
+    <property name="aspectj.version" value="1.8.9"/>
+    <property name="maven.home" value="C:\Program Files (x86)\apache-maven-3.3.9"/>
+
 
     <!-- Ivy properties -->
     <property name="ivy.install.version" value="2.3.0"/>
@@ -46,11 +48,11 @@
     </target>
 
     <target name="compile" depends="init" description="Compile the source">
-        <javac srcdir="${src.main}" destdir="${build.compile}" classpathref="lib.path.id" includeantruntime="true"/>
+        <javac srcdir="${src}" destdir="${build.compile}" classpathref="lib.path.id" includeantruntime="true"/>
     </target>
 
     <target name="test-compile" depends="compile" description="Compile tests source">
-        <javac srcdir="${src.test}" destdir="${build.test-compile}" classpathref="lib.path.id" includeantruntime="true">
+        <javac srcdir="${src}" destdir="${build.test-compile}" classpathref="lib.path.id" includeantruntime="true">
             <classpath>
                 <pathelement location="${build.compile}"/>
             </classpath>
@@ -63,25 +65,31 @@
                 <path refid="lib.path.id"/>
             </classpath>
         </taskdef>
-        <testng workingDir="${build.report}" outputdir="${build.report}">
+        <testng workingDir="${build.report}" outputdir="${build.report}" listeners="org.uncommons.reportng.HTMLReporter, org.testng.reporters.XMLReporter">
             <jvmarg value="-javaagent:${ivy.lib.dir}/aspectjweaver-${aspectj.version}.jar"/>
             <classpath>
                 <pathelement location="${build.compile}"/>
                 <pathelement location="${build.test-compile}"/>
                 <path refid="lib.path.id"/>
             </classpath>
-            <classfileset dir="${build.test-compile}" includes="**/*.class"/>
+
+            <sysproperty key="webdriver.chrome.driver" value="${basedir}/driver/chromedriver.exe"/>
+            <xmlfileset dir="${basedir}" includes="twitterTestNG.xml"/>
         </testng>
     </target>
 
     <target name="clean" description="Clean up">
         <delete dir="${build}"/>
+        <delete dir="${basedir}/target"/>
     </target>
-    <target name="run twitter tests" depends="compile">
-    <!-- testng tag will be used to execute testng code using corresponding testng.xml file -->
-        <testng>
-            <xmlfileset dir="${basedir}" includes="twitterTestNG.xml"/>
-    </testng>
-    </target>
+
     <target name="run" depends="clean,test" description="Do the entire lifecycle"/>
+
+    <target name="run-allure" depends="run" description="Do the entire lifecycle and generate Allure report">
+        <exec dir="." executable="cmd">
+            <arg line="/c mvn site" />
+        </exec>
+    </target>
+
+
 </project>
