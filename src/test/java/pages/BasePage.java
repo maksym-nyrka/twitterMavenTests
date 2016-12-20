@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created on 22/11/2016 at 10:15.
  */
-public class BasePage {
+abstract public class BasePage {
 
     WebDriver driver;
 

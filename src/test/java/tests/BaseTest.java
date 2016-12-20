@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created on 21/11/2016 at 14:55.
  */
-public class BaseTest {
+abstract public class BaseTest {
 
     WebDriver driver;
 
