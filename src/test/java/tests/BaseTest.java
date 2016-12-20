@@ -23,7 +23,7 @@ abstract public class BaseTest {
     @BeforeClass
     @Parameters("browser")
     public void setup(@Optional("chrome") String browser) {
-        PropertyConfigurator.configure("C:\\Users\\evilplane\\IdeaProjects\\twitterMavenTests2\\log4j.properties");
+        PropertyConfigurator.configure(new File("").getAbsolutePath()+"\\log4j.properties");
         if (browser.equalsIgnoreCase("chrome"))
         {
             //File file = new File(".\\driver\\chromedriver.exe");
